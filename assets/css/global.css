@@ -8,18 +8,37 @@ body{
 .content{
     position: relative;
     height: 100vh;
-    width: 100vw;
+    width: 95vw;
     padding: 1rem;
     background-color: #ffffff;
 }
-.back img{
+.content-itens{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.4rem;
+}
+.search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+.search input{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    outline: none;
+    border: 0.5px solid rgb(0, 0, 0);
+    border-radius: 1rem;
+    text-indent: 10px;
+}
+.search img{
+    width: 25px;
     position: absolute;
-    width: 700px;
-    top: -60px;
-    right: -200px;
-    z-index: 0;
-    margin: 0;
-    opacity: 0.1;
+    right: 10px;
+    cursor: pointer;
 }
 @media screen and (min-width: 992px) {
     .content{

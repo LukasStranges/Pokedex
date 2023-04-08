@@ -33,6 +33,14 @@ pokeApi.getPokemons = async (offset,limit) => {
     return pokemonDetails;
         
 }
+pokeApi.getPokemonsName = async (name) => {
+    const url = `http://pokeapi.co/api/v2/pokemon/${name}`;
+    const response = await fetch(url);
+    const jsonBody = await response.json();
+    const detailRequest = convertPokemonApiDetailToPokemon(jsonBody)
+    return detailRequest;
+        
+}
 //                    COM FETCH
 // pokeApi.getPokemons = (offset = 0,limit = 10) => {
 //     const url = `http://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
