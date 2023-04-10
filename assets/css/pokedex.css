@@ -87,7 +87,7 @@
 .card-info-top .name{
     font-size: 1.7rem;
     text-align: left;
-    width: 130px;
+    width: 120px;
     font-weight: bold;
     padding: 0 .5rem;
 }
@@ -98,7 +98,7 @@
 }
 .card-info-top .detail .types{
     display: flex;
-    width: 130px;
+    width: 120px;
     margin-top: .5rem;
     justify-content: space-around;
     font-size: 0.675rem;
@@ -117,7 +117,7 @@
 }
 .info-Details{
     height: 55vh;
-    width: 100vw;
+    width: 100%;
     background-color: #ffffff;
     border-radius: 2rem 2rem 0 0;
     position: absolute;

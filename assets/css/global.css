@@ -12,7 +12,6 @@ body{
     position: relative;
     height: 95vh;
     width: 95vw;
-    padding: 0;
     background: url(/assets/img/12.jpg) no-repeat;
     background-position: center;
     background-size: 100%;
@@ -52,9 +51,9 @@ body{
 }
 .pokemon-card{
     background-color: #49D0B0;
-    width: 100vw;
+    width: 95vw;
     height: 100vh;
-    position: relative;
+    position: absolute;
     top: 0;
     z-index: 3;
 }
@@ -69,15 +68,13 @@ body{
 @media screen and (max-width: 394px) {
     .content{
         height: 100vh;
-        width: 100vw;
         overflow-y: scroll;
         background-size: 100% 100%;
     }
 }
 @media screen and (max-width: 426px) {
     .content{
-        height: 100vh;
-        width: 100vw;
+        height: 95vh;
         overflow-y: scroll;
         background-size: 100% 100%;
     }
