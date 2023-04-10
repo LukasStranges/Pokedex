@@ -1,51 +1,58 @@
 .normal{
-    background-color: #929DA3;
+    background-color: #929da35f;
 }
 .grass{
-    background-color: #49D0B0;
+    background-color: rgba(73,208,176,0.5);
 }
 .fighting{
-    background-color: #CE416B;
+    background-color: #ce416b8b;
 }
 .flying{
     background-color: #8FA9DE;
 }
 .bug{
-    background-color: #91C12F;
+    background-color: rgba(67, 193, 47, 0.5);
 }
 .fire{
-    background-color: #ff2f00;
+    background-color: rgba(255, 98, 0, 0.573);
 }
 .water{
-    background-color: #5090D6;
+    background-color: rgba(80, 144, 214, 0.5);
 }
 .poison{
-    background-color: #AA6BC8;
+    background-color: #aa6bc89e;
 }
 .fairy{
-    background-color: #EC8FE6;
+    background-color: #ec8fe66d;
 }
 .ground{
-    background-color: #D97845;
+    background-color: #d9794572;
 }
 .psychic{
-    background-color: #FA7179;
+    background-color: #fa717a6e;
 }
 .rock{
     background-color: #C5B78C;
 }
 .electric{
-    background-color: #F4D23C;
+    background-color: #f4d23c9b;
 }
 .steel{
     background-color: #5A8EA2;
 }
 .ghost{
-    background-color: #5269AD;
+    background-color: #5269ad90;
 }
 .dragon{
     background-color: #0B6DC3;
 }
 .ice{
     background-color: #73CEC0;
+}
+
+.fundo{
+    background-image: url(/assets/img/gramaPoke.png);
+    background-size: 120% 60%;
+    background-repeat: no-repeat;
+    background-position: bottom;
 }

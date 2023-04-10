@@ -4,12 +4,20 @@ const pokemonList = document.getElementById("pokemonList")
 const pagination = document.getElementById("pagination")
 const loadMoreButton = document.getElementById("loadMoreButton")
 const loadLessButton = document.getElementById("loadLessButton")
+let largura = window. screen.width;
 const maxRecords = 151;
-const limit = 12;
+var limit = 12;
 let offset = 0;
 
-console.log(clickSearch)
-loadPokemonItens(offset,limit)
+
+if(largura <= 375){
+    limit = 3
+    loadPokemonItens(offset,limit)
+}else{
+    loadPokemonItens(offset,limit)
+}
+
+
 if(offset == 0){
     loadLessButton.classList.add("remover")
 }
@@ -32,7 +40,12 @@ clickSearch.addEventListener('click', () =>{
     let name = search.value.toLowerCase();
     loadPokemon(name)
 })
-
+document.addEventListener('keypress', function(e){
+    if(e.key === 'Enter'){
+        let name = search.value.toLowerCase();
+        loadPokemon(name)
+    }
+ }, false);
 
 loadLessButton.addEventListener('click',() =>{
     offset -= limit;
@@ -50,7 +63,7 @@ loadLessButton.addEventListener('click',() =>{
 function loadPokemonItens(offset,limit){
     pokeApi.getPokemons(offset,limit).then((pokemons = []) => {
         const newHtml =  pokemons.map((pokemon) => `
-            <li class="pokemon ${pokemon.type}">
+            <li class="pokemon ${pokemon.type} fundo">
                 <span class="number">#${pokemon.number}</span>
                 <span class="name">${pokemon.name}</span>
                 <div class="detail">
@@ -67,7 +80,6 @@ function loadPokemonItens(offset,limit){
 
 function loadPokemon(name){
     pokeApi.getPokemonsName(name).then((pokemon = []) => {
-        console.log(pokemon);
         const newHtml =  `
             <li class="pokemon ${pokemon.type}">
                 <span class="number">#${pokemon.number}</span>
@@ -83,3 +95,11 @@ function loadPokemon(name){
         pokemonList.innerHTML = newHtml;
     })
 }
+
+
+
+
+
+
+
+

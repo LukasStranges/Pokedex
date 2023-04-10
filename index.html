@@ -26,18 +26,15 @@
 </head>
 <body>   
     <section class="content">
-        <div class="content-itens">
-            <h1>Pokedex</h1>
-            <div class="search">
-                <input type="search" name="search" id="search" placeholder="Pesquisar">
-                <img src="https://img.icons8.com/arcade/64/null/pokeball.png" id="clickSearch">
+            <div class="content-itens">
+                <h1>Pokedex</h1>
+                <div class="search">
+                    <input type="search" name="search" id="search" placeholder="Pesquisar">
+                    <img src="https://img.icons8.com/arcade/64/null/pokeball.png" id="clickSearch">
+                </div>
             </div>
-            
-        </div>
-        
         <ol id="pokemonList" class="pokemons">
         </ol>
-
         <div class="pagination" id="pagination">
             <button type="button" id="loadLessButton">
                 <img src="https://img.icons8.com/sf-black/64/null/back.png"/> 
@@ -46,6 +43,23 @@
                 <img src="https://img.icons8.com/sf-black/64/null/forward.png"/> 
             </button>
         </div>
+        <section class="pokemon-card">
+            <ol>
+                <li class="card-info-top">
+                    <span class="number">#001</span>
+                    <span class="name">Bulbasaur</span>
+                    <div class="detail">
+                        <ol class="types">
+                            <li>Grass</li>
+                            <li>Posion</li>
+                        </ol>
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg">
+                    </div>
+                </li>
+            </ol>
+            <div class="info-Details">                
+            </div>
+        </section>
     </section>
 </body>
 </html>
