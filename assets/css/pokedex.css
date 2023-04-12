@@ -77,52 +77,85 @@
 }
 
 .card-info-top{
-    height: 50vh;
+    position: relative;
+    height: 40vh;
     color: #fff;
     font-weight: bold;
     display: grid;
-    grid-template-columns: 1fr;
     padding: 1rem;
 }
-.card-info-top .name{
-    font-size: 1.7rem;
+.card-info-top .detail{
+    height: 70px;
+    margin-top: 30px;
+    display: grid;
+    align-items: center;
+}
+.card-info-top .detail .name{
+    font-size: 1.8rem;
     text-align: left;
     width: 120px;
     font-weight: bold;
-    padding: 0 .5rem;
 }
-.card-info-top .number{
-    justify-self: flex-end;
+.card-info-top .detail .number{
     position: absolute;
-    top: 40px;
+    justify-self: flex-end;   
 }
 .card-info-top .detail .types{
     display: flex;
     width: 120px;
-    margin-top: .5rem;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: 0.675rem;
 }.card-info-top .detail .types li{
     background-color: #61E2C8;
-    padding: 0.4rem 0.9rem;
+    padding: 0.320rem 0.7rem;
     border-radius: 2rem;
     filter: brightness(1);
 }
-.card-info-top .detail img{
-    width: 50%;
-    position: relative;
-    margin-top: 70px;
+.card-info-top img{
+    width: 48%;
+    margin: 0 auto;
+    margin-top: 10px;
     z-index: 1;
-    left: 70px;
 }
 .info-Details{
-    height: 55vh;
+    height: 60vh;
     width: 100%;
+    padding: 1.5rem;
     background-color: #ffffff;
     border-radius: 2rem 2rem 0 0;
-    position: absolute;
+    position: relative;
     bottom: 0;
     z-index: 0;
+}
+.info-Details ul{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.101);
+}
+.info-Details ul li{
+    cursor: pointer;
+    padding-bottom: 15px;
+}
+.info-Details ul li:hover{
+    border-bottom: 1.2px solid rgb(43, 0, 255);
+}
+.details-card ul{
+    border: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 235px;
+}
+.details-card h4{
+    display: inline-block;
+    padding-top: .8rem;
+    font-size: 1.1rem;
+    color: #000000;
+}
+.li-Left{
+    font-size: 0.9rem;
+    color: #00000078;
 }
 @media screen and (max-width: 376px) {
     .pokemons{
