@@ -6,7 +6,7 @@
     margin: 0;
 }
 body{
-    background-color: #f6f8fc;
+    background-color: #000000;
 }
 .content{
     position: relative;
@@ -56,6 +56,7 @@ body{
     position: absolute;
     top: 0;
     z-index: 3;
+    display: none;
 }
 @media screen and (min-width: 992px) {
     .content{
