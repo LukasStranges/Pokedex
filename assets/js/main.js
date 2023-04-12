@@ -16,30 +16,18 @@ if(largura <= 375){
 }else{
     loadPokemonItens(offset,limit)
 }
+//Proxima pagina de pokemons
+loadMoreButton.addEventListener('click',morePage)
+//Pagina anterior de pokemons
+loadLessButton.addEventListener('click',loadLessPage)
 
 
-if(offset == 0){
-    loadLessButton.classList.add("remover")
-}
-loadMoreButton.addEventListener('click',() =>{
-    offset += limit;
-    const qtdPokemons = offset + limit;
-    if(qtdPokemons >= maxRecords){
-        const newLimit = maxRecords - offset;
-        loadPokemonItens(offset,newLimit)
-        loadMoreButton.parentElement.removeChild(loadMoreButton)
-    }else{
-        loadPokemonItens(offset,limit)
-    }
-    if(offset != 0){
-        loadLessButton.classList.remove("remover")
-    }
-})
 
 clickSearch.addEventListener('click', () =>{
     let name = search.value.toLowerCase();
     loadPokemon(name)
 })
+
 document.addEventListener('keypress', function(e){
     if(e.key === 'Enter'){
         let name = search.value.toLowerCase();
@@ -47,16 +35,6 @@ document.addEventListener('keypress', function(e){
     }
  }, false);
 
-loadLessButton.addEventListener('click',() =>{
-    offset -= limit;
-    if(offset == 0){
-        loadLessButton.classList.add("remover")
-    }
-    if(!document.getElementById("loadMoreButton")){
-        pagination.appendChild(loadMoreButton)
-    }
-    loadPokemonItens(offset,limit)
-})
 
 
 
@@ -96,7 +74,37 @@ function loadPokemon(name){
     })
 }
 
+function morePage(){
+    offset += limit;
+    const qtdPokemons = offset + limit;
+    if(qtdPokemons >= maxRecords){
+        const newLimit = maxRecords - offset;
+        loadPokemonItens(offset,newLimit)
+        loadMoreButton.parentElement.removeChild(loadMoreButton)
+    }else{
+        loadPokemonItens(offset,limit)
+    }
+    if(offset != 0){
+        loadLessButton.classList.remove("remover")
+    }
+}
 
+function loadLessPage(){
+    offset -= limit;
+    if(offset == 0){
+        loadLessButton.classList.add("remover")
+    }
+    if(!document.getElementById("loadMoreButton")){
+        pagination.appendChild(loadMoreButton)
+    }
+    loadPokemonItens(offset,limit)
+}
+
+function keyPressed(e){
+    e = e || window.event;
+    var key = e.keyCode || e.which;
+    return String.fromCharCode(key); 
+}
 
 
 
