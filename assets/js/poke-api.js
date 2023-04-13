@@ -24,7 +24,7 @@ pokeApi.getPokemonDetail = (pokemon) => {
 
 
 pokeApi.getPokemons = async (offset,limit) => {
-    const url = `http://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
+    const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
     const response = await fetch(url);
     const jsonBody = await response.json();
     const pokemons = jsonBody.results;
@@ -34,7 +34,7 @@ pokeApi.getPokemons = async (offset,limit) => {
         
 }
 pokeApi.getPokemonsName = async (name) => {
-    const url = `http://pokeapi.co/api/v2/pokemon/${name}`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
     const response = await fetch(url);
     const jsonBody = await response.json();
     const detailRequest = convertPokemonApiDetailToPokemon(jsonBody)
