@@ -51,7 +51,7 @@
 }
 
 .fundo{
-    background-image: url(/assets/img/gramaPoke.png);
+    background-image: url(./assets/img/gramaPoke.png);
     background-size: 120% 60%;
     background-repeat: no-repeat;
     background-position: bottom;
