@@ -10,7 +10,7 @@ var limit = 12;
 let offset = 0;
 
 
-if(largura <= 375){
+if(largura <= 376){
     limit = 3
     loadPokemonItens(offset,limit)
 }else{
