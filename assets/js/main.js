@@ -12,6 +12,8 @@ let offset = 0;
 if(largura <= 420){
     limit = 3
     loadPokemonItens(offset,limit)
+}else{
+    loadPokemonItens(offset,limit)
 }
 
 function loadPokemonItens(offset,limit){
