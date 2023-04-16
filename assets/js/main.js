@@ -1,10 +1,9 @@
-const clickSearch = document.getElementById("clickSearch")
+
 const search = document.getElementById("search")
 const pokemonList = document.getElementById("pokemonList")
 const pagination = document.getElementById("pagination")
-const loadMoreButton = document.getElementById("loadMoreButton")
-const loadLessButton = document.getElementById("loadLessButton")
-let largura = window. screen.width;
+
+let largura = window.screen.width;
 const maxRecords = 151;
 var limit = 12;
 let offset = 0;
@@ -13,30 +12,7 @@ let offset = 0;
 if(largura <= 420){
     limit = 3
     loadPokemonItens(offset,limit)
-}else{
-    loadPokemonItens(offset,limit)
 }
-//Proxima pagina de pokemons
-loadMoreButton.addEventListener('click',morePage)
-//Pagina anterior de pokemons
-loadLessButton.addEventListener('click',loadLessPage)
-
-
-
-clickSearch.addEventListener('click', () =>{
-    let name = search.value.toLowerCase();
-    loadPokemon(name)
-})
-
-document.addEventListener('keypress', function(e){
-    if(e.key === 'Enter'){
-        let name = search.value.toLowerCase();
-        loadPokemon(name)
-    }
- }, false);
-
-
-
 
 function loadPokemonItens(offset,limit){
     pokeApi.getPokemons(offset,limit).then((pokemons = []) => {
@@ -56,6 +32,11 @@ function loadPokemonItens(offset,limit){
     })
 }
 
+clickSearch.addEventListener('click', () =>{
+    let name = search.value.toLowerCase();
+    loadPokemon(name)
+})
+
 function loadPokemon(name){
     pokeApi.getPokemonsName(name).then((pokemon = []) => {
         const newHtml =  `
@@ -74,37 +55,6 @@ function loadPokemon(name){
     })
 }
 
-function morePage(){
-    offset += limit;
-    const qtdPokemons = offset + limit;
-    if(qtdPokemons >= maxRecords){
-        const newLimit = maxRecords - offset;
-        loadPokemonItens(offset,newLimit)
-        loadMoreButton.parentElement.removeChild(loadMoreButton)
-    }else{
-        loadPokemonItens(offset,limit)
-    }
-    if(offset != 0){
-        loadLessButton.classList.remove("remover")
-    }
-}
-
-function loadLessPage(){
-    offset -= limit;
-    if(offset == 0){
-        loadLessButton.classList.add("remover")
-    }
-    if(!document.getElementById("loadMoreButton")){
-        pagination.appendChild(loadMoreButton)
-    }
-    loadPokemonItens(offset,limit)
-}
-
-function keyPressed(e){
-    e = e || window.event;
-    var key = e.keyCode || e.which;
-    return String.fromCharCode(key); 
-}
 
 
 
