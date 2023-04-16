@@ -78,7 +78,7 @@
 
 .card-info-top{
     position: relative;
-    height: 40vh;
+    height: 30vh;
     color: #fff;
     font-weight: bold;
     display: grid;
@@ -110,52 +110,6 @@
     padding: 0.320rem 0.7rem;
     border-radius: 2rem;
     filter: brightness(1);
-}
-.card-info-top img{
-    width: 48%;
-    margin: 0 auto;
-    margin-top: 10px;
-    z-index: 1;
-}
-.info-Details{
-    height: 60vh;
-    width: 100%;
-    padding: 1.5rem;
-    background-color: #ffffff;
-    border-radius: 2rem 2rem 0 0;
-    position: relative;
-    bottom: 0;
-    z-index: 0;
-}
-.info-Details ul{
-    display: flex;
-    margin-top: 20px;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.101);
-}
-.info-Details ul li{
-    cursor: pointer;
-    padding-bottom: 15px;
-}
-.info-Details ul li:hover{
-    border-bottom: 1.2px solid rgb(43, 0, 255);
-}
-.details-card ul{
-    border: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 235px;
-}
-.details-card h4{
-    display: inline-block;
-    padding-top: .8rem;
-    font-size: 1.1rem;
-    color: #000000;
-}
-.li-Left{
-    font-size: 0.9rem;
-    color: #00000078;
 }
 @media screen and (max-width: 376px) {
     .pokemons{
