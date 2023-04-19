@@ -3,6 +3,11 @@ const search = document.getElementById("search")
 const pokemonList = document.getElementById("pokemonList")
 const pagination = document.getElementById("pagination")
 
+const imgpok = document.getElementById("img")
+
+
+
+
 let largura = window.screen.width;
 const maxRecords = 151;
 var limit = 12;
@@ -31,6 +36,27 @@ function loadPokemonItens(offset,limit){
             </li>`).join("")
         
         pokemonList.innerHTML = newHtml;
+
+        
+        
+        // const test = pokemonList.querySelectorAll('li')
+        // for (let i = 0; i < test.length; i++) {
+        //     const element = test[i];
+        //     element.addEventListener('click',() =>{
+        //         const ele = element.childNodes
+
+        //         console.log(ele);
+
+
+        //         const img = ele[5].childNodes
+        //         console.log(img[3].src);
+
+        //         imgpok.innerHTML += `<img src="${img[3].src}">`
+                
+        //     })
+        // }
+       
+        
     })
 }
 
@@ -56,6 +82,8 @@ function loadPokemon(name){
         pokemonList.innerHTML = newHtml;
     })
 }
+
+
 
 
 
