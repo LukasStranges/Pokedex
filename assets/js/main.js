@@ -3,6 +3,8 @@ const search = document.getElementById("search")
 const pokemonList = document.getElementById("pokemonList")
 const pagination = document.getElementById("pagination")
 
+let teste = [];
+
 let largura = window.screen.width;
 const maxRecords = 151;
 var limit = 12;
@@ -15,6 +17,13 @@ if(largura <= 420){
 }else{
     loadPokemonItens(offset,limit)
 }
+
+
+
+pokeApi.getPokemons(offset,limit).then((pokemon) =>{
+    console.log(pokemon);
+});
+
 
 function loadPokemonItens(offset,limit){
     pokeApi.getPokemons(offset,limit).then((pokemons = []) => {

@@ -7,8 +7,23 @@ function convertPokemonApiDetailToPokemon(pokeDetail){
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name);
     const [type] = types;
     pokemon.types = types;
+    pokemon.weight = (pokeDetail.weight/10);
+    pokemon.height = (pokeDetail.height/10);
     pokemon.type = type;
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
+    pokemon.abilites = pokeDetail.abilities.map((abilites) => abilites.ability.name);
+
+    //Pegando a especie é egg_groups
+    fetch(pokeDetail.species.url)
+        .then((response) => response.json())
+        .then((species) => {
+            pokemon.species = species.genera[7].genus;
+
+            const groups = species.egg_groups.map((groups) => groups.name)
+            pokemon.egg_groups = groups[0];
+            pokemon.egg_cycle = groups[1];
+            
+        })
 
     return pokemon;
 }
