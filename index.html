@@ -23,30 +23,33 @@
     <!-- MEU CSS -->
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/pokedex.css">
+    <link rel="stylesheet" href="assets/css/card-pokedex.css">
     <link rel="stylesheet" href="assets/css/colorPokemons.css">
     <title>Pokedex</title>
 </head>
 <body>   
     <section class="content">
-        <div class="content-itens">
-            <h1>Pokedex</h1>
-            <div class="search">
-                <input type="search" name="search" id="search" placeholder="Pesquisar">
-                <img src="https://img.icons8.com/arcade/64/null/pokeball.png" id="clickSearch">
+            <div class="content-itens">
+                <h1>Pokedex</h1>
+                <div class="search">
+                    <input type="search" name="search" id="search" placeholder="Pesquisar">
+                    <img src="https://img.icons8.com/arcade/64/null/pokeball.png" id="clickSearch">
+                </div>
             </div>
-        </div>
-        <ol id="pokemonList" class="pokemons">
-        </ol>
-        <div class="pagination" id="pagination">
-            <button type="button" id="loadLessButton" class="remover">
-                <img src="https://img.icons8.com/sf-black/64/null/back.png"/> 
-            </button>
-            <button type="button" id="loadMoreButton">
-                <img src="https://img.icons8.com/sf-black/64/null/forward.png"/> 
-            </button>
-        </div>
-        
+            <ol id="pokemonList" class="pokemons">
+            </ol>
+            <div class="pagination" id="pagination">
+                <button type="button" id="loadLessButton" class="remover">
+                    <img src="https://img.icons8.com/sf-black/64/null/back.png"/> 
+                </button>
+                <button type="button" id="loadMoreButton">
+                    <img src="https://img.icons8.com/sf-black/64/null/forward.png"/> 
+                </button>
+            </div>
+            <div id="card" class="card">
+                
+            </div>
     </section>
-    <div id="img"></div>
+    
 </body>
 </html>

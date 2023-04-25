@@ -43,7 +43,7 @@
     font-size: .680rem;
     border-radius: 1rem;
     text-transform: capitalize;
-    filter: brightness(1);
+    filter: brightness(1.1);
     text-align: center;
 }
 .pokemon .detail img{

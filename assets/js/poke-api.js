@@ -2,7 +2,7 @@ const pokeApi = {}
 
 function convertPokemonApiDetailToPokemon(pokeDetail){
     const pokemon = new Pokemon();
-    pokemon.number = pokeDetail.id;
+    pokemon.number = "#"+pokeDetail.id;
     pokemon.name = pokeDetail.name;
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name);
     const [type] = types;
@@ -13,12 +13,19 @@ function convertPokemonApiDetailToPokemon(pokeDetail){
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
     pokemon.abilites = pokeDetail.abilities.map((abilites) => abilites.ability.name);
 
+    //Pegando a os status
+    pokemon.stats =    pokeDetail.stats.map((hp) => {
+        let infos = [];
+        infos.push(hp.base_stat);
+        infos.push(hp.stat.name);
+        return infos;
+    })
+
     //Pegando a especie é egg_groups
     fetch(pokeDetail.species.url)
         .then((response) => response.json())
         .then((species) => {
             pokemon.species = species.genera[7].genus;
-
             const groups = species.egg_groups.map((groups) => groups.name)
             pokemon.egg_groups = groups[0];
             pokemon.egg_cycle = groups[1];

@@ -2,9 +2,9 @@
 const search = document.getElementById("search")
 const pokemonList = document.getElementById("pokemonList")
 const pagination = document.getElementById("pagination")
-
-let teste = [];
+const card_pokemon = document.getElementById("card") 
 const imgpok = document.getElementById("img")
+
 
 
 
@@ -22,18 +22,11 @@ if(largura <= 420){
     loadPokemonItens(offset,limit)
 }
 
-
-
-pokeApi.getPokemons(offset,limit).then((pokemon) =>{
-    console.log(pokemon);
-});
-
-
 function loadPokemonItens(offset,limit){
-    pokeApi.getPokemons(offset,limit).then((pokemons = []) => {
+    pokeApi.getPokemons(offset,limit).then((pokemons = []) => {       
         const newHtml =  pokemons.map((pokemon) => `
             <li class="pokemon ${pokemon.type} fundo">
-                <span class="number">#${pokemon.number}</span>
+                <span class="number">${pokemon.number}</span>
                 <span class="name">${pokemon.name}</span>
                 <div class="detail">
                     <ol class="types">
@@ -45,28 +38,47 @@ function loadPokemonItens(offset,limit){
         
         pokemonList.innerHTML = newHtml;
 
-        
-        
-        // const test = pokemonList.querySelectorAll('li')
-        // for (let i = 0; i < test.length; i++) {
-        //     const element = test[i];
-        //     element.addEventListener('click',() =>{
-        //         const ele = element.childNodes
+        const element = pokemonList.querySelectorAll('li')
+        for (let i = 0; i < element.length; i++) {
+            const pokemonInfo = element[i];
+            pokemonInfo.addEventListener('click',() =>{
+                const info = pokemonInfo.childNodes
 
-        //         console.log(ele);
+                for (let i = 0; i < pokemons.length; i++) {
 
+                    if(info[1].textContent == pokemons[i].number){
 
-        //         const img = ele[5].childNodes
-        //         console.log(img[3].src);
+                        const pokemonSele = pokemons[i]
 
-        //         imgpok.innerHTML += `<img src="${img[3].src}">`
-                
-        //     })
-        // }
-       
-        
+                        card_pokemon.style.display = 'block';
+
+                        card_pokemon.innerHTML = card(pokemonSele)
+
+                        const infos_status = document.getElementById('infos-status');
+                        infos_status.innerHTML = about(pokemonSele)
+
+                        document.getElementById('about').addEventListener('click',() => {
+                            infos_status.innerHTML = about(pokemonSele)
+                        })
+                        document.getElementById('base_stats').addEventListener('click',() => {
+                            infos_status.innerHTML = base_stats(pokemonSele)
+                        })
+                        
+                        card_pokemon.classList.add(`${pokemonSele.type}`)                            
+                        
+                        const close_card = document.getElementById("close")
+                        close_card.addEventListener('click', () => {
+                            card_pokemon.classList.remove(`${pokemonSele.type}`)
+                            card_pokemon.style.display = 'none';
+                        })
+                    }
+                }
+            })            
+        }   
     })
 }
+
+
 
 clickSearch.addEventListener('click', () =>{
     let name = search.value.toLowerCase();
@@ -85,7 +97,8 @@ function loadPokemon(name){
                     </ol>
                     <img src="${pokemon.photo}">
                 </div>
-            </li>`
+            </li>
+            `
 
         pokemonList.innerHTML = newHtml;
     })

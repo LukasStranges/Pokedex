@@ -6,16 +6,13 @@
     margin: 0;
 }
 body{
-    background-color: #000000;
+    background-color: #000000
 }
 .content{
+    height: 98vh;
+    width: 98vw;
     position: relative;
-    height: 95vh;
-    width: 95vw;
-    background-image: url(../img/fundo.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
+    background-color: rgb(246, 249, 249);
     
 }
 .content-itens{
