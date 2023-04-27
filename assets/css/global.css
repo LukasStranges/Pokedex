@@ -9,11 +9,10 @@ body{
     background-color: #000000
 }
 .content{
-    height: 98vh;
+    height: 95vh;
     width: 98vw;
     position: relative;
-    background-color: rgb(246, 249, 249);
-    
+    background-color: rgb(246, 249, 249);   
 }
 .content-itens{
     width: 100%;

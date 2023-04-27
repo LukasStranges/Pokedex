@@ -12,7 +12,6 @@ function convertPokemonApiDetailToPokemon(pokeDetail){
     pokemon.type = type;
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
     pokemon.abilites = pokeDetail.abilities.map((abilites) => abilites.ability.name);
-
     //Pegando a os status
     pokemon.stats =    pokeDetail.stats.map((hp) => {
         let infos = [];
@@ -20,6 +19,11 @@ function convertPokemonApiDetailToPokemon(pokeDetail){
         infos.push(hp.stat.name);
         return infos;
     })
+
+    pokemon.evolutionChain = 
+        pokeApi.getEvolutionChain(pokeDetail.species.url)
+        .then((evolutionChain) => pokemon.evolutionChain = evolutionChain);
+
 
     //Pegando a especie é egg_groups
     fetch(pokeDetail.species.url)
@@ -60,6 +64,26 @@ pokeApi.getPokemonsName = async (name) => {
     return detailRequest;
         
 }
+pokeApi.getEvolutionChain = async (speciesURL) => {
+    const response = await fetch(speciesURL);
+    const response_1 = await response.json();
+    const evolutionChainURL = response_1.evolution_chain.url;
+    const response_2 = await fetch(evolutionChainURL);
+    const response_3 = await response_2.json();
+    const evolutionChain = response_3.chain;
+    
+    let evolutionPath = [];
+
+    evolutionPath.push(evolutionChain.species.name);
+    evolutionChain.evolves_to.forEach((evolution) => {
+        evolutionPath.push(evolution.species.name);
+        evolution.evolves_to.forEach((evolution_1) => {
+            evolutionPath.push(evolution_1.species.name);
+        });
+    });
+    return evolutionPath;
+};
+
 //                    COM FETCH
 // pokeApi.getPokemons = (offset = 0,limit = 10) => {
 //     const url = `http://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;

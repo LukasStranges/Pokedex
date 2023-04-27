@@ -115,6 +115,9 @@
     .pokemons{
         grid-template-columns: 1fr ;
     }
+    .pokemon{
+        padding: 0.3rem 1rem;
+    }
 }
 @media screen and (min-width: 576px) {
     .pokemons{
@@ -124,6 +127,10 @@
 @media screen and (min-width: 992px) {
     .pokemons{
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        
+    }
+    .pokemon{
+        padding: 0.3rem 1rem;
     }
 }
 .remover{

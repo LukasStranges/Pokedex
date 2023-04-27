@@ -11,7 +11,35 @@ class Pokemon{
     egg_groups;
     egg_cycle;
     stats;
+    evolutionChain;
     total;
+}
+function card(pokemonSele) {
+    const card =  `
+    <i id="close"><img src="https://img.icons8.com/ios-filled/50/null/long-arrow-left.png"/></i> 
+    <div class="top-infos">                
+        <span class="number-card">${pokemonSele.number}</span>
+        <div class="detail">
+            <span class="name-card">${pokemonSele.name}</span>                    
+            <ol class="types">
+                ${pokemonSele.types.map((type) => `<li class="${type}">${type}</li>`).join('')}
+            </ol>                            
+        </div>                    
+    </div>
+    <div class="img-card">
+        <img src="${pokemonSele.photo}" alt="pokemon ${pokemonSele.name}">
+    </div>
+    <div class="bottom_status">
+        <ul class="status_header">
+            <li id="about">About</li>
+            <li id="base_stats">Base Stats</li>
+            <li id="evolution">Evolutions</li>
+            <li>Moves</li>
+        </ul>
+        <div class="infos-status" id="infos-status">
+        </div>
+    </div>`
+    return card;
 }
 
 function about(pokemonSele){
@@ -79,38 +107,22 @@ function base_stats(pokemonSele){
                 <li>60</li>
                 <span><hr></span>
             </ul>
-        </ul>
-        <h4>Type defenses</h4>                                
+        </ul>                                
     </div>  
             `
     return base_stats;
 }
 
-function card(pokemonSele) {
-    const card =  `
-    <i id="close"><img src="https://img.icons8.com/ios-filled/50/null/long-arrow-left.png"/></i> 
-    <div class="top-infos">                
-        <span class="number-card">${pokemonSele.number}</span>
-        <div class="detail">
-            <span class="name-card">${pokemonSele.name}</span>                    
-            <ol class="types">
-                ${pokemonSele.types.map((type) => `<li class="${type}">${type}</li>`).join('')}
-            </ol>                            
-        </div>                    
-    </div>
-    <div class="img-card">
-        <img src="${pokemonSele.photo}" alt="pokemon ${pokemonSele.name}">
-    </div>
-    <div class="bottom_status">
-        <ul class="status_header">
-            <li id="about">About</li>
-            <li id="base_stats">Base Stats</li>
-            <li>Evolutions</li>
-            <li>Moves</li>
-        </ul>
-        <div class="infos-status" id="infos-status">
-        </div>
-    </div>`
-    return card;
+function evoltution(pokemonSele){
+    const evoltution =`
+    <div class="evoltution">
+        <ul>
+            <li><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonSele.number}.svg"></li>
+            <li><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonSele.number + 1}.svg"></li>
+            <li><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonSele.number + 1}.svg"></li>
+            <li><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonSele.number + 2}.svg"></li>                       
+        </ul>                                
+    </div>  
+            `
+    return evoltution;
 }
-

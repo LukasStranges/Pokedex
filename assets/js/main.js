@@ -11,19 +11,19 @@ const imgpok = document.getElementById("img")
 
 let largura = window.screen.width;
 const maxRecords = 151;
-var limit = 12;
+var limit = 16;
 let offset = 0;
 
 
 if(largura <= 420){
-    limit = 3
+    limit = 4
     loadPokemonItens(offset,limit)
 }else{
     loadPokemonItens(offset,limit)
 }
 
 function loadPokemonItens(offset,limit){
-    pokeApi.getPokemons(offset,limit).then((pokemons = []) => {       
+    pokeApi.getPokemons(offset,limit).then((pokemons = []) => {
         const newHtml =  pokemons.map((pokemon) => `
             <li class="pokemon ${pokemon.type} fundo">
                 <span class="number">${pokemon.number}</span>
@@ -63,6 +63,9 @@ function loadPokemonItens(offset,limit){
                         document.getElementById('base_stats').addEventListener('click',() => {
                             infos_status.innerHTML = base_stats(pokemonSele)
                         })
+                        document.getElementById('evolution').addEventListener('click',() => {
+                            infos_status.innerHTML = evoltution(pokemonSele)
+                        })
                         
                         card_pokemon.classList.add(`${pokemonSele.type}`)                            
                         
@@ -74,7 +77,8 @@ function loadPokemonItens(offset,limit){
                     }
                 }
             })            
-        }   
+        }
+               
     })
 }
 
@@ -97,10 +101,9 @@ function loadPokemon(name){
                     </ol>
                     <img src="${pokemon.photo}">
                 </div>
-            </li>
-            `
-
+            </li>`
         pokemonList.innerHTML = newHtml;
+           
     })
 }
 

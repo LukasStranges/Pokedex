@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;    
     overflow: hidden;
 }
 .card{
@@ -11,6 +11,7 @@
     top: 0;
     z-index: 2;
     display: none;
+    overflow: hidden;
 }
 .card i{
     width: 50px;
@@ -89,9 +90,10 @@
     border-bottom: 1px solid blue;
     color: black;
 }
+
 .bottom_status .infos-status .about ul{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     padding: 1rem 0;
     text-transform: capitalize;
     font-weight: bold;
@@ -124,4 +126,40 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.stats_ hr{
+    height: 2px;
+    border: none;
+}
+
+@media screen and (min-width: 900px) {
+    .bottom_status{
+        margin-top: 10px;
+    }
+    .img-card{
+        margin-top: -120px;
+        height: 180px;
+    }
+    .status_header{
+        font-size: 1rem;
+    }
+    .bottom_status .infos-status .about ul{
+        grid-template-columns: 1fr 2fr 1fr 2fr;
+    }
+    .bottom_status h4{
+        font-size: 1.2rem;
+    }
+    .infos-status{
+        margin-top: 30px;
+    }
+    .bottom_status .infos-status .about ul li{
+        font-size: 1.1rem;
+    }
+    .bottom_status .infos-status .base_stats ul li{
+        font-size: 1.1rem;
+    }
+    .bottom_status .infos-status .base_stats ul .stats_{
+        width: 95%;
+    }
+    
 }
